@@ -64,9 +64,8 @@ if __name__ == '__main__':
     print(f"Server started at port {port}")
 
 
-# python app.py 6001ś
-# here MySQL Host is used                           
+# python app.py 6001
 
-# This will start the server on por t 6001 and print "Server started at port 6001" in the console. 
+# This will start the server on port 6001 and print "Server started at port 6001" in the console. 
 # If no argument is provided, it will run on port 5000 by default.
 
