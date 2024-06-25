@@ -64,6 +64,8 @@ coverage.xml
 # Environments
 .env
 .env.*
+flask-project-env/
+
 
 # macOS
 .DS_Store
