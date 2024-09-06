@@ -98,3 +98,10 @@ if __name__ == '__main__':
     
     app.run(port=port, debug=True)
     print(f"Server started at port {port}")
+
+
+# This command will list all processes using port 8080. If no output is returned, the port is free.
+# netstat -ano | findstr :8080
+
+# If your Flask application file is named app.py, the command will be:
+# python app.py 8080
