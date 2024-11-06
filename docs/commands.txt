@@ -1,5 +1,12 @@
-# Create .gitignore file using New-Item
-New-Item -ItemType file -Name .gitignore
+# Check if .gitignore file exists, create if not, and then open it in VSCode
+if (-Not (Test-Path .gitignore)) {
+    New-Item -ItemType File -Name .gitignore
+}
 
 # Open .gitignore file in VSCode
 code .gitignore
+
+Explanation:
+-> Test-Path .gitignore: Checks if the .gitignore file already exists.
+-> New-Item -ItemType File -Name .gitignore: Creates the .gitignore file if it does not exist.
+-> code .gitignore: Opens the .gitignore file in VSCode.

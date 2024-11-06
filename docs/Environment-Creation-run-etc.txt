@@ -1,0 +1,11 @@
+# Step 1: Create a virtual environment named 'flask-project-env'
+# This command creates a virtual environment in the directory 'flask-project-env'.
+py -m venv flask-project-env
+
+# Step 2: Activate the virtual environment
+# This command activates the virtual environment, setting up the project-specific Python environment.
+.\flask-project-env\Scripts\activate
+
+# Step 3: Install required dependencies from the 'requirements.txt' file
+# This installs all the dependencies listed in 'requirements.txt' into the virtual environment.
+pip install -r .\requirements.txt
