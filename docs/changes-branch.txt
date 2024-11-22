@@ -12,5 +12,24 @@ git commit -m "Feature: Improved API validation and error handling
 3. Added 'No data available' message for empty GET requests.
 4. Updated PUT requests to handle missing resource scenarios.
 
-Date: $DATE"
+Date: $DATE" 
+
+=================== Git Refined Message ============================
+
+git commit --amend -m "Feature: Implemented Flask CRUD API with SQLite database and enhanced error handling
+
+1. Set up the Flask application and initialized SQLite database for storing mobile data.
+2. Created CRUD routes for managing mobile data:
+   - GET /mobiles: Retrieve all mobiles from the database.
+   - GET /mobiles/<id>: Retrieve mobile data by ID.
+   - POST /mobiles: Add a new mobile with validation and duplicate check.
+   - PUT /mobiles/<id>: Update mobile data by ID, with error handling for missing resources.
+   - DELETE /mobiles/<id>: Delete mobile data by ID, with 'Resource not found' error handling.
+3. Enhanced error handling across routes with appropriate messages for missing or duplicate resources.
+4. Improved database connection handling to ensure proper resource management.
+5. Structured GET route responses with consistent JSON format for better API readability.
+6. Implemented validation for POST and PUT requests to ensure correct and complete data.
+
+Date: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
+ 
 
