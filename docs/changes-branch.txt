@@ -1,5 +1,9 @@
 This is the new git branch called "changes" for any kind of changes in progress okay. 
 
+-------------------------------------------------------------------------------------
+
+========================== git commit message command ===============================
+
 DATE=$(date "+%Y-%m-%d %H:%M")
 git commit -m "Feature: Improved API validation and error handling
 

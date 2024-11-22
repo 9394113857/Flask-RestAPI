@@ -38,7 +38,13 @@ def get_mobiles_sqlite():
 
     if not mobiles:
         return jsonify({"message": "No data available"}), 200
-    return jsonify(mobiles), 200
+    return jsonify([{
+        'id': mobile[0],
+        'name': mobile[1],
+        'price': mobile[2],
+        'ram': mobile[3],
+        'storage': mobile[4]
+    } for mobile in mobiles]), 200
 
 @app.route('/mobiles/<int:id>', methods=['GET'])
 def get_mobile_by_id_sqlite(id):
@@ -50,28 +56,45 @@ def get_mobile_by_id_sqlite(id):
     conn.close()
 
     if mobile:
-        return jsonify(mobile), 200
+        return jsonify({
+            'id': mobile[0],
+            'name': mobile[1],
+            'price': mobile[2],
+            'ram': mobile[3],
+            'storage': mobile[4]
+        }), 200
     else:
         return jsonify({"message": "Resource not found"}), 404
 
 @app.route('/mobiles', methods=['POST'])
 def add_mobile_sqlite():
-    data = request.json
+    data = request.get_json()  # Assuming you're sending JSON
+    print(data)  # Debugging line to check the incoming data
+    if not data:
+        return jsonify({"message": "No data provided"}), 400
+
+    try:
+        # Ensure that all necessary fields are present
+        name = data['name']
+        price = data['price']
+        ram = data['ram']
+        storage = data['storage']
+    except KeyError as e:
+        return jsonify({"error": f"Missing field: {e}"}), 400
+
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    # Check for duplicate entry
-    query_check = "SELECT * FROM mobiles WHERE name = ? AND price = ? AND ram = ? AND storage = ?"
-    cursor.execute(query_check, (data['name'], data['price'], data['ram'], data['storage']))
-    duplicate = cursor.fetchone()
-
-    if duplicate:
+    # Check if the mobile already exists
+    query_check = 'SELECT * FROM mobiles WHERE name=? AND price=? AND ram=? AND storage=?'
+    cursor.execute(query_check, (name, price, ram, storage))
+    if cursor.fetchone():
         conn.close()
-        return jsonify({"message": "Duplicate entry not allowed"}), 409
+        return jsonify({"error": "Mobile already exists"}), 400
 
     # Insert new mobile
     query = "INSERT INTO mobiles (name, price, ram, storage) VALUES (?, ?, ?, ?)"
-    cursor.execute(query, (data['name'], data['price'], data['ram'], data['storage']))
+    cursor.execute(query, (name, price, ram, storage))
     conn.commit()
     conn.close()
     return jsonify({"message": "Mobile added successfully"}), 201
@@ -79,6 +102,17 @@ def add_mobile_sqlite():
 @app.route('/mobiles/<int:id>', methods=['PUT'])
 def update_mobile_sqlite(id):
     data = request.json
+    if not data:
+        return jsonify({"message": "No data provided"}), 400
+    
+    try:
+        name = data['name']
+        price = data['price']
+        ram = data['ram']
+        storage = data['storage']
+    except KeyError as e:
+        return jsonify({"error": f"Missing field: {e}"}), 400
+
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -93,7 +127,7 @@ def update_mobile_sqlite(id):
 
     # Update the mobile
     query = "UPDATE mobiles SET name = ?, price = ?, ram = ?, storage = ? WHERE id = ?"
-    cursor.execute(query, (data['name'], data['price'], data['ram'], data['storage'], id))
+    cursor.execute(query, (name, price, ram, storage, id))
     conn.commit()
     conn.close()
     return jsonify({"message": "Mobile updated successfully"}), 200
