@@ -4,6 +4,7 @@ From office system changes as on: 22-11-24 after ---> 5:00 PM
 -------------------------------------------------------------
 From office system changes as on: 22-11-24 after ---> 5:00 PM 
 -------------------------------------------------------------
+
 git commit -m "$(date +'%Y-%m-%d') $(date +'%H:%M:%S')
 Added logging functionality for mobile CRUD operations and database interactions
 
