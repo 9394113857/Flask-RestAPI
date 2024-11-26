@@ -1,6 +1,0 @@
-2024-11-25 17:09:33,116 INFO [Mobile_api_flask_sqlite:96] Received data for new mobile: {'name': '1', 'price': 1, 'ram': 1, 'storage': 1}
-2024-11-25 17:09:33,128 INFO [Mobile_api_flask_sqlite:128] Mobile added successfully: 1, 1, 1, 1
-2024-11-25 17:10:27,946 INFO [Mobile_api_flask_sqlite:166] Mobile updated successfully (ID: 13)
-2024-11-25 17:10:58,294 INFO [Mobile_api_flask_sqlite:190] Mobile deleted successfully (ID: 13)
-2024-11-25 17:13:59,438 INFO [Mobile_api_flask_sqlite:200] Server started at port 5000
-2024-11-25 17:13:59,514 INFO [Mobile_api_flask_sqlite:200] Server started at port 5000
