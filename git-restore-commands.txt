@@ -1,0 +1,14 @@
+# Step 1: Unstage .gitignore if it has staged content
+git restore --staged .gitignore
+
+# Step 2: Remove all files that should now be ignored by .gitignore
+git rm -r --cached .
+
+# Step 3: Stage the updated .gitignore file again
+git add .gitignore
+
+# Step 4: Commit the changes
+git commit -m "Remove tracked files that are now ignored by .gitignore"
+
+# Step 5: Push the changes to your remote repository
+git push origin changes
