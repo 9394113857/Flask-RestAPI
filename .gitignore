@@ -66,7 +66,6 @@ coverage.xml
 .env.*
 flask-project-env/
 
-
 # macOS
 .DS_Store
 
@@ -81,3 +80,6 @@ Desktop.ini
 
 # Custom ignore files
 /mobiles.db
+
+# Logs folder
+logs/
