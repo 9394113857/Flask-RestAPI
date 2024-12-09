@@ -1,0 +1,48 @@
+version: '3'  # Defines the version of Docker Compose syntax being used.
+
+services:
+  # Backend Service: Flask API with SQLAlchemy and SQLite
+  backend:
+    build:
+      context: .  # The context is the current directory (where the docker-compose file and Flask app are located).
+      dockerfile: Dockerfile.backend  # Specifies the Dockerfile to use for the backend service (Flask API).
+    ports:
+      - "5000:5000"  # Maps port 5000 of the container to port 5000 on the host machine (Flask default port).
+    environment:
+      - FLASK_ENV=production  # Environment variable for Flask to run in production mode.
+    volumes:
+      - .:/app  # Mounts the current directory into the /app directory of the container, useful for development.
+    networks:
+      - app-network  # Connects this service to a custom Docker network.
+    depends_on:
+      - db  # Ensures that the backend starts after the database service is ready.
+
+  # Frontend Service: Angular Application
+  frontend:
+    build:
+      context: ./angular_app  # Sets the build context to the Angular app directory.
+      dockerfile: Dockerfile.frontend  # Specifies the Dockerfile to use for the frontend service (Angular).
+    ports:
+      - "4200:80"  # Maps port 80 of the container (nginx) to port 4200 on the host machine (Angular default port).
+    networks:
+      - app-network  # Connects this service to the same Docker network as the backend.
+    depends_on:
+      - backend  # Ensures the frontend starts after the backend is up and running.
+
+  # Database Service: SQLite (Lightweight, embedded database for development)
+  db:
+    image: nouchka/sqlite:latest  # Uses the SQLite image from Docker Hub for the database.
+    volumes:
+      - sqlite-data:/sqlite-data  # Persists database data on the host machine to avoid data loss when container restarts.
+    networks:
+      - app-network  # Connects this service to the same Docker network as the backend and frontend.
+
+networks:
+  # Custom network for communication between services
+  app-network:
+    driver: bridge  # Uses the bridge driver for creating a local network to connect the containers.
+
+volumes:
+  # Named volume to persist SQLite data on the host
+  sqlite-data:
+    driver: local  # Specifies that a local volume driver should be used for SQLite data persistence.

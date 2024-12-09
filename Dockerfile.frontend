@@ -1,0 +1,10 @@
+frontend:
+    build:
+      context: ./angular_app  # Sets the build context to the Angular app folder.
+      dockerfile: Dockerfile.frontend  # Specifies the Dockerfile for the frontend service (Angular).
+    ports:
+      - "4200:80"  # Maps port 80 of the container (nginx default) to port 4200 on the host machine (Angular default).
+    networks:
+      - app-network  # Connects the frontend service to the same network as backend and database services.
+    depends_on:
+      - backend  # Ensures the frontend starts only after the backend is up and running.
