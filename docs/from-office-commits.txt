@@ -31,5 +31,19 @@ From office system changes as on: 9-12-24 after ---> 5:00 PM
 ----------------------------------------------------------------
 From office system changes as on: 9-12-24 after ---> 7:00 PM
 ----------------------------------------------------------------
+================================================================
+----------------------------------------------------------------
+From office system changes as on: 18-12-24 after ---> 6:00 PM
+----------------------------------------------------------------
+git commit -m "Created basic CRUD operations for mobile records, flow not checked
+
+1. Set up routes for creating, reading, updating, and deleting mobile records.
+2. Integrated SQLAlchemy for database interactions.
+3. Functionality implemented, but flow is not fully verified.
+
+Date: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+
+
+
 
 

@@ -53,6 +53,19 @@ def get_db_connection():
 
 # SQLite Routes
 
+@app.route('/')
+def hello_world():
+    message = {
+        "greeting": "Hello, World!",
+        "welcome_message": "Welcome to our Flask API service!",
+        "service_status": "The service is currently up and running without issues.",
+        "note": "You can explore various API endpoints for more features.",
+        "support_contact": "If you need help, contact us at support@example.com."
+    }
+    return jsonify(message), 200
+
+
+
 @app.route('/mobiles', methods=['GET'])
 def get_mobiles_sqlite():
     logger.info("Fetching all mobiles from the database.")

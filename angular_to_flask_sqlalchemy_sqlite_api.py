@@ -1,4 +1,3 @@
-# Import necessary libraries
 from flask import Flask, request, jsonify
 from flask_cors import CORS  # Cross-Origin Resource Sharing (CORS) for handling API requests from different origins
 from flask_sqlalchemy import SQLAlchemy  # SQLAlchemy for ORM (Object-Relational Mapping)
@@ -37,8 +36,13 @@ logger.addHandler(log_handler)  # Add rotating file handler for logging
 for filename in os.listdir(logs_dir):
     if filename.endswith('.log'):
         filepath = os.path.join(logs_dir, filename)
-        if filepath != log_file:  # Skip the current log file
-            os.remove(filepath)
+        # Skip the current log file that's in use
+        if filepath != log_file:  
+            try:
+                os.remove(filepath)
+                logger.info(f"Deleted old log file: {filename}")
+            except PermissionError as e:
+                logger.error(f"PermissionError: Could not delete file {filename} because it's in use. Error: {e}")
 
 # Set up Flask-SQLAlchemy configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mobiles.db'  # Define SQLite database URI (mobiles.db)
@@ -58,6 +62,11 @@ class Mobile(db.Model):
         return f"<Mobile {self.name}>"
 
 # Routes for handling CRUD operations
+
+# Route to return "Hello, World!" in JSON format
+@app.route('/', methods=['GET'])
+def hello_world():
+    return jsonify({"message": "Hello, World!"})
 
 # Route to get all mobiles from the database
 @app.route('/mobiles', methods=['GET'])
@@ -196,12 +205,14 @@ if __name__ == '__main__':
     # Allow specifying a custom port at runtime, default to 5000
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 5000
     
-    # Create all tables if they don't already exist
-    db.create_all()
+    # Ensure app context is active when calling db.create_all()
+    with app.app_context():
+        db.create_all()  # Create all tables if they don't already exist
 
     # Run the Flask app on the specified port
     app.run(port=port, debug=True)
     logger.info(f"Server started at port {port}")
+
 
 
 
