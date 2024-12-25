@@ -11,4 +11,39 @@ git commit -m "Feature: Added logging functionality for mobile CRUD operations a
 3. Introduced log cleanup to delete old log files, ensuring efficient storage management.
 
 Date: $(Get-Date -Format 'yyyy-MM-dd hh:mm tt')"
+----------------------------------------------------------------
+From office system changes as on: 27-11-24 after ---> 5:30 PM
+----------------------------------------------------------------
+git commit -m "Feature: Added File for Flask app with MySQL, SQLAlchemy, and dynamic port check at runtime
+
+1. **Flask App Setup**: Initialized Flask app with CORS support for cross-origin requests.
+2. **SQLAlchemy Integration**: Configured SQLAlchemy for MySQL database connection and defined 'Mobile' model.
+3. **Port Availability Check**: Implemented dynamic port check to ensure server does not run on an already occupied port.
+4. **CRUD Routes**: Added CRUD endpoints for managing 'mobiles' records (GET, POST, PUT, DELETE).
+5. **Database Table Creation**: Automatically creates 'mobiles' table on first run if it does not exist.
+
+Date: $(Get-Date -Format 'yyyy-MM-dd hh:mm tt')"
+
+----------------------------------------------------------------
+From office system changes as on: 29-11-24 after ---> 6:30 PM
+----------------------------------------------------------------
+From office system changes as on: 9-12-24 after ---> 5:00 PM
+----------------------------------------------------------------
+From office system changes as on: 9-12-24 after ---> 7:00 PM
+----------------------------------------------------------------
+================================================================
+----------------------------------------------------------------
+From office system changes as on: 18-12-24 after ---> 6:00 PM
+----------------------------------------------------------------
+git commit -m "Created basic CRUD operations for mobile records, flow not checked
+
+1. Set up routes for creating, reading, updating, and deleting mobile records.
+2. Integrated SQLAlchemy for database interactions.
+3. Functionality implemented, but flow is not fully verified.
+
+Date: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+
+
+
+
 

@@ -1,0 +1,14 @@
+backend:
+    build:
+      context: .  # Specifies the current directory as the build context for the Flask app (including the Dockerfile).
+      dockerfile: Dockerfile.backend  # Specifies the Dockerfile for building the Flask backend service.
+    ports:
+      - "5000:5000"  # Maps port 5000 of the container (Flask's default port) to port 5000 on the host machine.
+    environment:
+      - FLASK_ENV=production  # Runs Flask in production mode (improves performance).
+    volumes:
+      - .:/app  # Mounts the current directory to the /app directory in the container (for development).
+    networks:
+      - app-network  # Connects the backend service to the Docker network.
+    depends_on:
+      - db  # Ensures the backend service starts only after the database service is ready.
