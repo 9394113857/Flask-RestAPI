@@ -1,0 +1,18 @@
+2024-12-25 20:37:04,809 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:48] Database initialized or already exists.
+2024-12-25 20:37:05,780 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:48] Database initialized or already exists.
+2024-12-25 20:38:53,873 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:58] Fetching all mobiles from the database.
+2024-12-25 20:38:53,889 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:69] Found 3 mobiles in the database.
+2024-12-25 20:38:58,674 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:58] Fetching all mobiles from the database.
+2024-12-25 20:38:58,680 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:69] Found 3 mobiles in the database.
+2024-12-25 20:39:04,923 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:58] Fetching all mobiles from the database.
+2024-12-25 20:39:04,923 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:69] Found 3 mobiles in the database.
+2024-12-25 20:40:58,669 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:58] Fetching all mobiles from the database.
+2024-12-25 20:40:58,686 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:69] Found 3 mobiles in the database.
+2024-12-25 20:41:11,102 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:174] Mobile updated successfully (ID: 3)
+2024-12-25 20:41:11,123 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:58] Fetching all mobiles from the database.
+2024-12-25 20:41:11,131 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:69] Found 3 mobiles in the database.
+2024-12-25 20:41:25,426 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:174] Mobile updated successfully (ID: 3)
+2024-12-25 20:41:25,480 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:58] Fetching all mobiles from the database.
+2024-12-25 20:41:25,480 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:69] Found 3 mobiles in the database.
+2024-12-25 20:43:59,500 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:209] Server started at port 5000
+2024-12-25 20:43:59,892 INFO [Angular-to-Flask-Mobile-api-flask-sqlite:209] Server started at port 5000
