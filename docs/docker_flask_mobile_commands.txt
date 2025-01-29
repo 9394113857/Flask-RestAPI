@@ -1,0 +1,17 @@
+# Step 1: Build the Docker image from the Dockerfile in the current directory
+docker build -t flask_mobile_api .
+
+# Step 2: Run the Docker container in detached mode, mapping port 5000
+docker run -d -p 5000:5000 --name flask_mobile_service flask_mobile_api
+
+# Step 3: Verify if the container is running
+docker ps
+
+# Step 4: Stop the container when needed
+docker stop flask_mobile_service
+
+# Step 5: Remove the container (optional, only if you don't need it anymore)
+docker rm flask_mobile_service
+
+# Step 6: Remove the Docker image (optional, if you no longer need the image)
+docker rmi flask_mobile_api

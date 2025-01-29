@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "9adacd33-6d11-45f3-9a14-689901296d72",
+		"name": "Flask-Api-of-Mobiles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32949464",
+		"_collection_link": "https://practicesession3.postman.co/workspace/New-Team-Workspace~9660e739-848f-42f1-8070-52f93eb0fdb9/collection/32949464-9adacd33-6d11-45f3-9a14-689901296d72?action=share&source=collection_link&creator=32949464"
+	},
+	"item": [
+		{
+			"name": "1. GET All Mobiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/mobiles",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"mobiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. GET Mobile by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/mobiles/6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"mobiles",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. POST Add Mobile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"iPhone 13\",\r\n    \"price\": 799.99,\r\n    \"ram\": \"6GB\",\r\n    \"storage\": \"128GB\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/mobiles",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"mobiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. PUT Update Mobile",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"iPhone 13 Pro\",\r\n    \"price\": 999.99,\r\n    \"ram\": \"8GB\",\r\n    \"storage\": \"256GB\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/mobiles/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"mobiles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. DELETE Mobile",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/mobiles/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"mobiles",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
