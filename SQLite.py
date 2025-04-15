@@ -28,6 +28,12 @@ def get_db_connection():
 
 # SQLite Routes
 
+
+@app.route('/')
+def hello_word():
+    return jsonify('Hello User')
+
+
 @app.route('/mobiles', methods=['GET'])
 def get_mobiles_sqlite():
     conn = get_db_connection()
