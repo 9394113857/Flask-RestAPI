@@ -1,0 +1,7 @@
+# Step 1: Install all required Python packages from requirements.txt
+# (Make sure requirements.txt is in the same folder)
+pip install -r requirements.txt
+
+# Step 2: Run the Flask backend script (Angular → Flask Mobile API using SQLite)
+# The "py" command runs the Python file in Windows
+py .\angular_to_flask_Mobile_api_flask_sqlite.py
