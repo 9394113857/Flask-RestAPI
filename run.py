@@ -6,7 +6,7 @@ from app import create_app
 
 
 # ============================================================
-# Load environment variables
+# Load environment variables 
 # ============================================================
 # Local development:
 #   Loads values from the .env file.
