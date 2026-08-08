@@ -11,6 +11,10 @@ def get_mobile_by_id(mobile_id):
 
 
 def add_mobile(name, price, ram, storage):
+    # Supabase stores ram and storage as strings.
+    ram = str(ram)
+    storage = str(storage)
+
     existing_mobile = Mobile.query.filter_by(
         name=name,
         price=price,
@@ -37,8 +41,8 @@ def add_mobile(name, price, ram, storage):
 def update_mobile(mobile, name, price, ram, storage):
     mobile.name = name
     mobile.price = price
-    mobile.ram = ram
-    mobile.storage = storage
+    mobile.ram = str(ram)
+    mobile.storage = str(storage)
 
     db.session.commit()
 
