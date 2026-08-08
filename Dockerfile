@@ -1,20 +1,58 @@
-# Use the official Python image as the base image
-FROM python:3.10-slim
+# ============================================================
+# Base Python image
+# ============================================================
 
-# Set the working directory in the container
+FROM python:3.12-slim
+
+
+# ============================================================
+# Environment configuration
+# ============================================================
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+
+# ============================================================
+# Working directory
+# ============================================================
+
 WORKDIR /app
 
-# Copy the requirements file into the container
-COPY requirements.txt ./
 
-# Install the required packages
+# ============================================================
+# Install Python dependencies
+# ============================================================
+
+COPY requirements.txt .
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code into the container
+
+# ============================================================
+# Copy application source code
+# ============================================================
+
 COPY . .
 
-# Expose the port that the app will run on
-EXPOSE 5000
 
-# Define the command to run the app
-CMD ["python", "angular_to_flask_Mobile_api_flask_sqlite.py"]
+# ============================================================
+# Create directory for runtime files
+# ============================================================
+
+RUN mkdir -p /app/instance /app/logs
+
+
+# ============================================================
+# Render provides the PORT environment variable.
+# Default to 5000 for local Docker testing.
+# ============================================================
+
+ENV PORT=5000
+
+
+# ============================================================
+# Start Flask using Gunicorn
+# ============================================================
+
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT} --workers 2 --timeout 120 run:app"]
